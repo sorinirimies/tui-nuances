@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.4] - 2026-10-14
+
+### Ci
+- Install prebuilt Nushell binary (setup-nu needs Node 20)
+
 ## [0.1.3] - 2026-10-14
 
 ### Bug Fixes
@@ -8,6 +13,7 @@ All notable changes to this project will be documented in this file.
 
 ### Miscellaneous
 - Remove setup_gitea script
+- Bump version to 0.1.3
 
 ### Ci
 - Install Nushell with setup-nu instead of compiling it
