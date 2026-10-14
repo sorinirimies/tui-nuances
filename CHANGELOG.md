@@ -1,11 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.3] - 2026-10-14
+
+### Bug Fixes
+- Install rustfmt and clippy for the nushell bump test
+
+### Miscellaneous
+- Remove setup_gitea script
+
+### Ci
+- Install Nushell with setup-nu instead of compiling it
+
 ## [0.1.1] - 2026-10-14
 
 ### Miscellaneous
 - Remove gitea migration script
 - Remove gitea migration script
+- Bump version to 0.1.1
 
 ## [0.1.0] - 2026-10-14
 
