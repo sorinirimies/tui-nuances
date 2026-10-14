@@ -50,42 +50,16 @@ jobs:
       - name: Cache Cargo dependencies
         uses: Swatinem/rust-cache@v2
   msrv:
-    name: msrv (1.74, ratatui 0.29)
+    name: msrv
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install stable (resolver) and Rust 1.74
-        uses: dtolnay/rust-toolchain@stable
-      - run: rustup toolchain install 1.74 --profile minimal
-      - name: MSRV-aware lockfile (v3 so Cargo 1.74 can read it)
-        run: |
-          rm -f Cargo.lock
-          CARGO_RESOLVER_INCOMPATIBLE_RUST_VERSIONS=fallback cargo +stable generate-lockfile
-          cargo +stable update -p ratatui --precise 0.29.0
-          sed -i 's/^version = 4$/version = 3/' Cargo.lock
+      - name: Install minimum supported Rust
+        uses: dtolnay/rust-toolchain@1.88.0
       - name: Check library on MSRV
-        run: cargo +1.74 check --lib --features serde
-
-  ratatui-matrix:
-    name: ratatui ${{ matrix.ratatui }}
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        ratatui: ["0.29.0", "0.30.2"]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
-      - name: Pin ratatui
-        run: cargo update -p ratatui --precise ${{ matrix.ratatui }}
-      - name: Test (examples need ratatui 0.30)
-        run: |
-          if [ "${{ matrix.ratatui }}" = "0.29.0" ]; then
-            cargo test --all-features --lib --tests
-            cargo test --all-features --doc
-          else
-            cargo test --all-features
-          fi
+        run: cargo check --locked --lib
+      - name: Cache Cargo dependencies
+        uses: Swatinem/rust-cache@v2
 
   doc:
     # run docs generation on nightly rather than stable. This enables features like

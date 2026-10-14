@@ -9,7 +9,7 @@ repository = "https://github.com/sorinirimies/tui-nuances"
 readme = "README.md"
 keywords = ["tui", "theme", "ratatui", "colors", "palette"]
 categories = ["command-line-interface", "rendering"]
-rust-version = "1.74"
+rust-version = "1.88.0"
 exclude = [
     ".gitea/**",
     ".github/**",
@@ -23,7 +23,7 @@ exclude = [
 ]
 
 [dependencies]
-ratatui = { version = ">=0.29, <0.31", default-features = false }
+ratatui = { version = "0.30", default-features = false }
 serde = { version = "1", features = ["derive"], optional = true }
 
 [features]
@@ -35,7 +35,7 @@ serde = ["dep:serde", "ratatui/serde"]
 anyhow = "1.0"
 serde_json = "1"
 crossterm = "0.29"
-ratatui = { version = ">=0.29, <0.31", features = ["crossterm"] }
+ratatui = { version = "0.30", features = ["crossterm"] }
 
 [[example]]
 name = "gallery"
