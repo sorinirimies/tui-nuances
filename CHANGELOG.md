@@ -1,7 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.1.6] - 2026-10-14
+
+### Documentation
+- Regenerate changelog
 
 ### Ci
 - Use prebuilt nushell; justfile: push/pull-all skip missing remotes
