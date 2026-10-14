@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [0.1.4] - 2026-10-14
 
+### Miscellaneous
+- Bump version to 0.1.4
+
 ### Ci
 - Install prebuilt Nushell binary (setup-nu needs Node 20)
 
