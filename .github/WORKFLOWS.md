@@ -228,7 +228,6 @@ scripts/
 ├── generate_all_tapes.nu # VHS demo GIF generation
 ├── upgrade_deps.nu       # Nightly dependency upgrade
 ├── version.nu            # Print current version
-├── setup_gitea.nu        # Set up Gitea remote
 └── README.md             # Script documentation
 ```
 

@@ -331,13 +331,6 @@ remotes:
     @echo "Configured git remotes:"
     @git remote -v
 
-# Setup Gitea remote (provide your Gitea URL)
-setup-gitea url:
-    @echo "Adding Gitea remote..."
-    git remote add gitea-microlab {{url}}
-    @echo "✅ Gitea remote added!"
-    @echo "Test with: git push gitea-microlab main"
-
 # Show current version
 version:
     @nu scripts/version.nu

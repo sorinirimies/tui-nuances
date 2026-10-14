@@ -187,23 +187,6 @@ brew install vhs
 
 ---
 
-### `setup_gitea.nu`
-
-Sets up Gitea as a second remote for dual-hosting (GitHub + Gitea).
-
-```bash
-nu scripts/setup_gitea.nu git@gitea.example.com:user/tui-nuances.git
-```
-
-#### What It Does
-
-- Adds (or updates) the `gitea` remote
-- Tests the connection
-- Optionally pushes all branches and tags
-- Prints quick-reference commands
-
----
-
 ## Integration with CI/CD
 
 The `release_prepare.nu` script is called by both GitHub Actions and Gitea Actions release workflows. The workflows install Nushell via [`hustcer/setup-nu@v3`](https://github.com/hustcer/setup-nu) and then call:
