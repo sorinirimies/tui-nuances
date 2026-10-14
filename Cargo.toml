@@ -1,0 +1,58 @@
+[package]
+name = "tui-nuances"
+version = "0.1.0"
+edition = "2021"
+authors = ["Sorin Irimies <sorinirimies@gmail.com>"]
+license = "MIT"
+description = "Shared theming for ratatui widget libraries: one Theme, 16 built-in palettes, semantic styles, contrast-aware color math and terminal color downgrade"
+repository = "https://github.com/sorinirimies/tui-nuances"
+readme = "README.md"
+keywords = ["tui", "theme", "ratatui", "colors", "palette"]
+categories = ["command-line-interface", "rendering"]
+rust-version = "1.88.0"
+exclude = [
+    ".gitea/**",
+    ".github/**",
+    ".zed/**",
+    "fuzz/**",
+    "scripts/**",
+    "examples/vhs/**",
+    "docs/**",
+    "cliff.toml",
+    "justfile",
+]
+
+[dependencies]
+ratatui = { version = "0.30", default-features = false }
+serde = { version = "1", features = ["derive"], optional = true }
+
+[features]
+default = []
+# Derive Serialize/Deserialize on Theme (colors as "#rrggbb" / names).
+serde = ["dep:serde", "ratatui/serde"]
+
+[dev-dependencies]
+anyhow = "1.0"
+serde_json = "1"
+crossterm = "0.29"
+ratatui = { version = "0.30", features = ["crossterm"] }
+
+[[example]]
+name = "gallery"
+path = "examples/gallery.rs"
+
+[[example]]
+name = "semantic"
+path = "examples/semantic.rs"
+
+[[example]]
+name = "switcher"
+path = "examples/switcher.rs"
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
