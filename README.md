@@ -98,6 +98,13 @@ use tui_nuances::Theme;
 let theme = Theme::dracula().downgrade_for_terminal(); // honours NO_COLOR / COLORTERM / TERM
 ```
 
+## Compatibility
+
+- ratatui: `>=0.29, <0.31` (0.29 and 0.30 both tested in CI).
+- MSRV: **Rust 1.74** with ratatui 0.29, **Rust 1.88** with ratatui 0.30 (ratatui's own requirement).
+- MSRV covers the library (incl. the `serde` feature) only. Examples and dev-dependencies (`crossterm` 0.29, `ratatui::run`) need ratatui 0.30 / newer Rust.
+- Old toolchains: build a lockfile with `CARGO_RESOLVER_INCOMPATIBLE_RUST_VERSIONS=fallback cargo generate-lockfile`, then `cargo update -p ratatui --precise 0.29.0`.
+
 ## Examples
 
 | Example | Run | Demo |

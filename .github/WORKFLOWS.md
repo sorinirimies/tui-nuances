@@ -26,7 +26,7 @@ Release logic is extracted into reusable Nushell scripts under `scripts/`, keepi
 - ✅ Concurrency control (cancels outdated PR runs)
 - ✅ Smart caching with `Swatinem/rust-cache`
 - ✅ Clippy feedback directly on PRs
-- ✅ Rust 1.88 MSRV verification
+- ✅ Rust 1.74 MSRV + ratatui 0.29/0.30 matrix verification
 - ✅ Nightly docs build with strict warning checks and `#[doc(cfg)]` support
 
 ### Jobs
@@ -44,7 +44,7 @@ Release logic is extracted into reusable Nushell scripts under `scripts/`, keepi
 
 #### 3. `msrv` - Minimum Supported Rust Version
 - Runs on: Ubuntu Latest
-- Uses: Rust 1.88.0
+- Uses: Rust 1.74 (ratatui 0.29)
 - Checks: `cargo check --locked --lib`
 - Purpose: Keeps `package.rust-version` truthful
 

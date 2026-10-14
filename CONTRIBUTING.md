@@ -142,7 +142,7 @@ is enforced.
 
 ### Prerequisites
 
-- Rust 1.88.0 or later
+- Rust 1.74+ (with ratatui 0.29) or 1.88+ (with ratatui 0.30); see Compatibility in README
 - A terminal that supports Unicode (for full visual testing)
 
 ### Building

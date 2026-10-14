@@ -36,6 +36,12 @@
 //! assert!(theme.palette.len() >= 8);
 //! ```
 //!
+//! # Compatibility
+//!
+//! Supports ratatui `>=0.29, <0.31`. MSRV is Rust 1.74 with ratatui 0.29 and
+//! Rust 1.88 with ratatui 0.30. MSRV applies to the library only; examples
+//! require ratatui 0.30.
+//!
 //! # Features
 //!
 //! * `serde` – `Serialize`/`Deserialize` for [`Theme`] (flat map of color strings).
