@@ -101,8 +101,12 @@ jobs:
         with:
           components: rustfmt, clippy
       - name: Install Nushell
-        uses: hustcer/setup-nu@v3
-        with:
-          version: '*'
+        # prebuilt binary: avoids compiling nu (~2 min) and setup-nu, which
+        # needs Node 20 (the Gitea runner has Node 18)
+        run: |
+          V=0.116.1
+          curl -fsSL "https://github.com/nushell/nushell/releases/download/$V/nu-$V-x86_64-unknown-linux-gnu.tar.gz" | tar -xz -C /tmp
+          sudo install -m 0755 "/tmp/nu-$V-x86_64-unknown-linux-gnu/nu" /usr/local/bin/nu || install -m 0755 "/tmp/nu-$V-x86_64-unknown-linux-gnu/nu" "$HOME/.cargo/bin/nu"
+          nu --version
       - name: Run Nu script tests
         run: nu scripts/tests/run_all.nu
