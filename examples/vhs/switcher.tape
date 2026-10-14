@@ -10,7 +10,7 @@ Set Padding 20
 Set PlaybackSpeed 1
 
 Hide
-Type "cargo run --release --example switcher"
+Type "clear && cargo run --release --example switcher"
 Enter
 Sleep 5s
 Show

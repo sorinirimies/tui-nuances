@@ -39,6 +39,13 @@ def main [] {
     # Create output directory if it doesn't exist
     mkdir $output_dir
 
+    print $"($blue)🔨 Building examples...($reset)"
+    let build = (do { ^cargo build --release --examples } | complete)
+    if $build.exit_code != 0 {
+        print $build.stderr
+        error make { msg: $"($red)❌ cargo build --release --examples failed($reset)" }
+    }
+
     # Discover all .tape files, sorted alphabetically
     let tapes = (discover_tapes $tape_dir)
     let total = ($tapes | length)

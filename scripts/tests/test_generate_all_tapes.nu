@@ -11,6 +11,8 @@ def run-with-fake-vhs [dir: string, code: int] {
     let bin = (make-tmp "fakebin")
     $"#!/bin/sh\necho fake-vhs \"$@\" >> ($bin)/calls.log\nexit ($code)\n" | save ($bin | path join "vhs")
     chmod +x ($bin | path join "vhs")
+    "#!/bin/sh\nexit 0\n" | save ($bin | path join "cargo")
+    chmod +x ($bin | path join "cargo")
     let path = ([$bin] | append $env.PATH | str join (char esep))
     let r = (with-env {PATH: $path} { run-script $dir "generate_all_tapes.nu" })
     {result: $r, bin: $bin}
@@ -73,6 +75,20 @@ def "test tapes: failing vhs exits non-zero" [] {
     let out = (run-with-fake-vhs $d 1)
     assert equal $out.result.exit_code 1
     assert ($out.result.stdout | str contains "Failed: 2")
+}
+
+def "test tapes: cargo run only inside Hide/Show" [] {
+    let root = ((scripts-dir) | path join "..")
+    for t in (discover_tapes ($root | path join "examples" "vhs")) {
+        mut hidden = false
+        for line in (open $t | lines | each {|l| $l | str trim }) {
+            if $line == "Hide" { $hidden = true }
+            if $line == "Show" { $hidden = false }
+            if ($line | str contains "cargo run") {
+                assert $hidden $"($t): visible cargo run"
+            }
+        }
+    }
 }
 
 def main [] { run-tests }
