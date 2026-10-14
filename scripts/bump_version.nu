@@ -7,7 +7,14 @@
 # Prompt for a line of input. Without a terminal (CI, pipes) there is nobody to
 # answer, so this returns "" and callers fall back to their default (usually "no").
 export def ask [prompt: string]: nothing -> string {
-    try { input $prompt } catch { "" }
+    # `input` reads /dev/tty when one exists, which ignores piped answers and
+    # hangs under test; use plain stdin whenever it is not a terminal.
+    if (is-terminal --stdin) {
+        try { input $prompt } catch { "" }
+    } else {
+        print -n $prompt
+        try { ^head -n 1 | str trim --right --char "\n" } catch { "" }
+    }
 }
 
 # True when `v` is X.Y.Z or X.Y.Z-suffix.
