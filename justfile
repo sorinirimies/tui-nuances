@@ -196,19 +196,19 @@ commit message:
 
 # Git: pull from GitHub (origin)
 pull:
-    git pull origin main
+    git pull origin "$(git branch --show-current)"
 
 # Git: pull from Gitea Microlab
 pull-gitea-microlab:
-    git pull gitea-microlab main
+    git pull gitea-microlab "$(git branch --show-current)"
 
 # Git: pull from Gitea (nexus-lab instance)
 pull-gitea-nexus-lab:
-    git pull gitea-nexus-lab main
+    git pull gitea-nexus-lab "$(git branch --show-current)"
 
 # Git: pull from Gitea Starscream
 pull-gitea-starscream:
-    git pull gitea-starscream main
+    git pull gitea-starscream "$(git branch --show-current)"
 
 # Git: pull from every configured remote (continues on failure)
 pull-all:
@@ -220,7 +220,7 @@ pull-all:
             skipped="$skipped $r"; continue
         fi
         echo "→ pulling from $r"
-        if git pull "$r" main; then done_="$done_ $r"; else failed="$failed $r"; fi
+        if git pull "$r" "$(git branch --show-current)"; then done_="$done_ $r"; else failed="$failed $r"; fi
     done
     echo ""
     [ -n "$done_" ] && echo "✅ Pulled from:$done_"
@@ -229,19 +229,19 @@ pull-all:
 
 # Git: push to GitHub (origin)
 push:
-    git push origin main
+    git push origin "$(git branch --show-current)"
 
 # Git: push to Gitea Microlab
 push-gitea-microlab:
-    git push gitea-microlab main
+    git push gitea-microlab "$(git branch --show-current)"
 
 # Git: push to Gitea (nexus-lab instance)
 push-gitea-nexus-lab:
-    git push gitea-nexus-lab main
+    git push gitea-nexus-lab "$(git branch --show-current)"
 
 # Git: push to Gitea Starscream
 push-gitea-starscream:
-    git push gitea-starscream main
+    git push gitea-starscream "$(git branch --show-current)"
 
 # Git: push to every configured remote (continues on failure)
 push-all:
@@ -253,7 +253,7 @@ push-all:
             skipped="$skipped $r"; continue
         fi
         echo "→ pushing to $r"
-        if git push "$r" main; then done_="$done_ $r"; else failed="$failed $r"; fi
+        if git push "$r" "$(git branch --show-current)"; then done_="$done_ $r"; else failed="$failed $r"; fi
     done
     echo ""
     [ -n "$done_" ] && echo "✅ Pushed to:$done_"
@@ -284,28 +284,28 @@ push-tags-all:
 # Full release workflow: bump version and push to GitHub
 release version: (bump version)
     @echo "Pushing to GitHub..."
-    git push origin main
+    git push origin "$(git branch --show-current)"
     git push origin v{{version}}
     @echo "✅ Release v{{version}} complete on GitHub!"
 
 # Full release workflow: bump version and push to Gitea Microlab
 release-gitea-microlab version: (bump version)
     @echo "Pushing to Gitea Microlab..."
-    git push gitea-microlab main
+    git push gitea-microlab "$(git branch --show-current)"
     git push gitea-microlab v{{version}}
     @echo "✅ Release v{{version}} complete on Gitea Microlab!"
 
 # Full release workflow: bump version and push to Gitea (nexus-lab instance)
 release-gitea-nexus-lab version: (bump version)
     @echo "Pushing to Gitea (nexus-lab)..."
-    git push gitea-nexus-lab main
+    git push gitea-nexus-lab "$(git branch --show-current)"
     git push gitea-nexus-lab v{{version}}
     @echo "✅ Release v{{version}} complete on Gitea (nexus-lab)!"
 
 # Full release workflow: bump version and push to Gitea Starscream
 release-gitea-starscream version: (bump version)
     @echo "Pushing to Gitea Starscream..."
-    git push gitea-starscream main
+    git push gitea-starscream "$(git branch --show-current)"
     git push gitea-starscream v{{version}}
     @echo "✅ Release v{{version}} complete on Gitea Starscream!"
 
@@ -319,7 +319,7 @@ release-all version: (bump version)
             skipped="$skipped $r"; continue
         fi
         echo "→ releasing to $r"
-        if git push "$r" main && git push "$r" "v{{version}}"; then done_="$done_ $r"; else failed="$failed $r"; fi
+        if git push "$r" "$(git branch --show-current)" && git push "$r" "v{{version}}"; then done_="$done_ $r"; else failed="$failed $r"; fi
     done
     echo ""
     [ -n "$done_" ] && echo "✅ Release v{{version}} on:$done_"
@@ -336,7 +336,7 @@ push-release-all:
             skipped="$skipped $r"; continue
         fi
         echo "→ pushing release to $r"
-        if git push "$r" main && git push "$r" --tags; then done_="$done_ $r"; else failed="$failed $r"; fi
+        if git push "$r" "$(git branch --show-current)" && git push "$r" --tags; then done_="$done_ $r"; else failed="$failed $r"; fi
     done
     echo ""
     [ -n "$done_" ] && echo "✅ Release pushed to:$done_"
@@ -346,21 +346,21 @@ push-release-all:
 # Sync Gitea Microlab with GitHub (force)
 sync-gitea-microlab:
     @echo "Syncing Gitea Microlab with GitHub..."
-    git push gitea-microlab main --force
+    git push gitea-microlab "$(git branch --show-current)" --force
     git push gitea-microlab --tags --force
     @echo "✅ Gitea Microlab synced!"
 
 # Sync Gitea Starscream with GitHub (force)
 sync-gitea-starscream:
     @echo "Syncing Gitea Starscream with GitHub..."
-    git push gitea-starscream main --force
+    git push gitea-starscream "$(git branch --show-current)" --force
     git push gitea-starscream --tags --force
     @echo "✅ Gitea Starscream synced!"
 
 # Sync Gitea (nexus-lab instance) with GitHub (force)
 sync-gitea-nexus-lab:
     @echo "Syncing Gitea (nexus-lab) with GitHub..."
-    git push gitea-nexus-lab main --force
+    git push gitea-nexus-lab "$(git branch --show-current)" --force
     git push gitea-nexus-lab --tags --force
     @echo "✅ Gitea (nexus-lab) synced!"
 
