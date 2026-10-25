@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.9] - 2026-10-25
+
+### Features
+- Highlight role (file-match color) in per-theme UI roles
+
+### Ci
+- Bump clechasseur/rs-clippy-check from 4 to 5 (#4)
+- Bump softprops/action-gh-release from 2 to 3 (#1)
+- Bump actions/checkout from 4 to 7 (#2)
+
 ## [0.1.8] - 2026-10-25
 
 ### Documentation
@@ -9,6 +19,9 @@ All notable changes to this project will be documented in this file.
 ### Features
 - Add 31 themes ported from gitkraft (47 built-ins); accent-insensitive by_name
 - Per-theme UI role colors (title/primary/border_focused/selection/muted/success) for explorer-compatible rendering
+
+### Miscellaneous
+- Bump version to 0.1.8
 
 ### Ci
 - Automerge green PRs (workflow_run) + dependabot for actions
