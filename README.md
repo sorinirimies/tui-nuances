@@ -1,7 +1,8 @@
 # tui-nuances
 
 [![Crates.io](https://img.shields.io/crates/v/tui-nuances.svg)](https://crates.io/crates/tui-nuances)
-[![Documentation](https://docs.rs/tui-nuances/badge.svg)](https://docs.rs/tui-nuances)
+[![docs.rs](https://docs.rs/tui-nuances/badge.svg)](https://docs.rs/tui-nuances)
+[![tui-nuances installs](https://img.shields.io/crates/d/tui-nuances?label=tui-nuances%20installs&logo=rust&color=orange)](https://crates.io/crates/tui-nuances)
 [![CI](https://github.com/sorinirimies/tui-nuances/actions/workflows/ci.yml/badge.svg)](https://github.com/sorinirimies/tui-nuances/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -34,13 +35,19 @@ and your own widgets.
 
 ## Installation
 
-Until published on crates.io, depend on the git repository:
+```sh
+cargo add tui-nuances
+# with serde support:
+cargo add tui-nuances --features serde
+```
+
+or in `Cargo.toml`:
 
 ```toml
 [dependencies]
-tui-nuances = { git = "https://github.com/sorinirimies/tui-nuances" }
+tui-nuances = "0.1"
 # with serde support:
-# tui-nuances = { git = "https://github.com/sorinirimies/tui-nuances", features = ["serde"] }
+# tui-nuances = { version = "0.1", features = ["serde"] }
 ```
 
 ## Quick start
