@@ -18,9 +18,10 @@ and your own widgets.
 - **One `Theme`** with ~30 named slots: UI (`foreground`, `muted`, `border`,
   `border_focused`, `primary`, `selection_bg/fg` …), status (`success`, `warning`,
   `error`, `info`) and data-viz (`palette`, `bull`, `bear`, `axis`, `grid`, `crosshair`, tooltip).
-- **16 built-in themes**: `default`, `catppuccin-mocha`, `catppuccin-latte`, `dracula`,
+- **47 built-in themes** (the 12 editor classics plus 31 ported from gitkraft): `default`, `catppuccin-mocha`, `catppuccin-latte`, `dracula`,
   `nord`, `gruvbox`, `tokyo-night`, `solarized-dark`, `solarized-light`, `one-dark`,
-  `rose-pine`, `monokai`, `porsche`, `colorblind`, `high-contrast`, `mono`.
+  `rose-pine`, `monokai`, `default-light`, `grape`, `ocean`, `sunset`, `forest`, `rose`, `neon`, `gruvbox-light`, `catppuccin-frappe`, `catppuccin-macchiato`, `tokyo-night-storm`, `tokyo-night-light`, `kanagawa-wave`, `kanagawa-dragon`, `kanagawa-lotus`, `moonfly`, `nightfly`, `oxocarbon`, `cyberpunk`, `rose-pine-moon`, `rose-pine-dawn`, `ayu-mirage`, `everforest-dark`, `atom-one-light`, `night-owl`, `poimandres`, `flexoki-dark`, `flexoki-light`, `carbonfox`, `andromeda`, `synthwave`,
+  `porsche`, `colorblind`, `high-contrast`, `mono`.
   Every theme (except the terminal-native `default`/`mono`) passes WCAG AA for text.
 - **Derive a theme** from what you have: `Theme::from_base(..)`, `Theme::from_palette(..)`.
 - **Semantic styles**: `style()`, `muted_style()`, `border_style(focused)`,

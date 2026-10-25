@@ -6,10 +6,10 @@
 //! every component of your app from it.
 //!
 //! * [`Theme`] – ~30 named color slots (UI, status, selection, data-viz) with
-//!   16 built-ins: `default`, `catppuccin-mocha`, `catppuccin-latte`,
+//!   47 built-ins: `default`, `catppuccin-mocha`, `catppuccin-latte`,
 //!   `dracula`, `nord`, `gruvbox`, `tokyo-night`, `solarized-dark`,
-//!   `solarized-light`, `one-dark`, `rose-pine`, `monokai`, `porsche`,
-//!   `colorblind`, `high-contrast`, `mono`.
+//!   `solarized-light`, `one-dark`, `rose-pine`, `monokai`, `default-light`, `grape`, `ocean`, `sunset`, `forest`, `rose`, `neon`, `gruvbox-light`, `catppuccin-frappe`, `catppuccin-macchiato`, `tokyo-night-storm`, `tokyo-night-light`, `kanagawa-wave`, `kanagawa-dragon`, `kanagawa-lotus`, `moonfly`, `nightfly`, `oxocarbon`, `cyberpunk`, `rose-pine-moon`, `rose-pine-dawn`, `ayu-mirage`, `everforest-dark`, `atom-one-light`, `night-owl`, `poimandres`, `flexoki-dark`, `flexoki-light`, `carbonfox`, `andromeda`, `synthwave`,
+//!   `porsche`, `colorblind`, `high-contrast`, `mono`.
 //! * [`Theme::from_base`] / [`Theme::from_palette`] – derive a full theme from a
 //!   few colors your app already has.
 //! * Semantic styles – [`Theme::style`], [`Theme::selected_style`],
