@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.8] - 2026-10-25
+
+### Documentation
+- Add installs badge and crates.io install; chore: align justfile with tokenburn
+
+### Features
+- Add 31 themes ported from gitkraft (47 built-ins); accent-insensitive by_name
+- Per-theme UI role colors (title/primary/border_focused/selection/muted/success) for explorer-compatible rendering
+
+### Ci
+- Automerge green PRs (workflow_run) + dependabot for actions
+- Automerge major dependabot bumps too
+- Nightly workflow-action bumps
+
 ## [0.1.7] - 2026-10-25
 
 ### Miscellaneous
@@ -10,6 +24,7 @@ All notable changes to this project will be documented in this file.
 - Nightly library update (#1)
 - Nightly library update (#1)
 - Update Cargo.lock
+- Bump version to 0.1.7
 
 ### Ci
 - Nightly update pushes to main directly like tui-spinner (no manual-merge PR)
