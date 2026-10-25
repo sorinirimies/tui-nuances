@@ -54,6 +54,7 @@ mod macros;
 mod builtin;
 pub mod color;
 mod provider;
+mod roles;
 mod style;
 mod support;
 mod switcher;

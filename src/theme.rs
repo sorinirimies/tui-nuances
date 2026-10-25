@@ -267,7 +267,7 @@ impl Theme {
         let (bg, fg, accent) = (rgb(s.bg), rgb(s.fg), rgb(s.accent));
         let surface = rgb(s.surface);
         let selection_bg = mix(bg, accent, 0.35);
-        Self {
+        let mut t = Self {
             name: name.into(),
             background: Some(bg),
             surface: Some(surface),
@@ -296,7 +296,9 @@ impl Theme {
             crosshair: rgb(s.muted),
             tooltip_fg: fg,
             tooltip_bg: surface,
-        }
+        };
+        crate::roles::apply(&mut t);
+        t
     }
 
     /// Apply `f` to every color field (and palette entry).
