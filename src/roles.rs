@@ -2,16 +2,16 @@
 //!
 //! The compact hex specs in `builtin.rs` drive the chart / series colors; this
 //! table fine-tunes the *UI chrome* roles (`title`, `primary`, `border_focused`,
-//! `selection_bg`, `muted`, `foreground`, `success`) so apps such as
+//! `selection_bg`, `muted`, `foreground`, `success`, `highlight`) so apps such as
 //! `tui-file-explorer` can render with the shared themes without losing their
 //! look. Column order: `[title, primary, border_focused, selection_bg, muted,
-//! foreground, success]`.
+//! foreground, success, highlight]`.
 
 use crate::color::{contrast_ratio, readable_on};
 use crate::theme::Theme;
 use ratatui::style::Color;
 
-pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
+pub(crate) const ROLES: &[(&str, [Color; 8])] = &[
     (
         "andromeda",
         [
@@ -21,6 +21,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(90, 92, 98),
             Color::Rgb(102, 102, 102),
             Color::Rgb(229, 229, 229),
+            Color::Rgb(5, 188, 121),
             Color::Rgb(5, 188, 121),
         ],
     ),
@@ -34,6 +35,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(118, 118, 118),
             Color::Rgb(42, 44, 51),
             Color::Rgb(63, 149, 58),
+            Color::Rgb(63, 149, 58),
         ],
     ),
     (
@@ -45,6 +47,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(64, 159, 255),
             Color::Rgb(104, 104, 104),
             Color::Rgb(204, 202, 194),
+            Color::Rgb(135, 217, 108),
             Color::Rgb(135, 217, 108),
         ],
     ),
@@ -58,6 +61,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(100, 100, 110),
             Color::Rgb(242, 244, 248),
             Color::Rgb(37, 190, 106),
+            Color::Rgb(37, 190, 106),
         ],
     ),
     (
@@ -70,6 +74,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(115, 121, 148),
             Color::Rgb(198, 208, 245),
             Color::Rgb(166, 209, 137),
+            Color::Rgb(129, 200, 190),
         ],
     ),
     (
@@ -82,6 +87,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(156, 160, 176),
             Color::Rgb(76, 79, 105),
             Color::Rgb(64, 160, 43),
+            Color::Rgb(23, 146, 153),
         ],
     ),
     (
@@ -94,6 +100,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(110, 115, 141),
             Color::Rgb(202, 211, 245),
             Color::Rgb(166, 218, 149),
+            Color::Rgb(139, 213, 202),
         ],
     ),
     (
@@ -106,6 +113,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(108, 112, 134),
             Color::Rgb(205, 214, 244),
             Color::Rgb(166, 227, 161),
+            Color::Rgb(148, 226, 213),
         ],
     ),
     (
@@ -117,6 +125,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(50, 48, 20),
             Color::Rgb(90, 90, 100),
             Color::Rgb(230, 230, 220),
+            Color::Rgb(0, 220, 180),
             Color::Rgb(0, 220, 180),
         ],
     ),
@@ -130,6 +139,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(130, 140, 160),
             Color::Rgb(30, 35, 50),
             Color::Rgb(30, 160, 80),
+            Color::Rgb(30, 160, 80),
         ],
     ),
     (
@@ -141,6 +151,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(68, 71, 90),
             Color::Rgb(98, 114, 164),
             Color::Rgb(248, 248, 242),
+            Color::Rgb(80, 250, 123),
             Color::Rgb(80, 250, 123),
         ],
     ),
@@ -154,6 +165,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(122, 132, 120),
             Color::Rgb(211, 198, 170),
             Color::Rgb(167, 192, 128),
+            Color::Rgb(167, 192, 128),
         ],
     ),
     (
@@ -165,6 +177,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(64, 62, 60),
             Color::Rgb(87, 86, 83),
             Color::Rgb(206, 205, 195),
+            Color::Rgb(135, 154, 57),
             Color::Rgb(135, 154, 57),
         ],
     ),
@@ -178,6 +191,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(111, 110, 105),
             Color::Rgb(16, 15, 15),
             Color::Rgb(102, 128, 11),
+            Color::Rgb(102, 128, 11),
         ],
     ),
     (
@@ -189,6 +203,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(20, 50, 20),
             Color::Rgb(90, 120, 80),
             Color::Rgb(210, 235, 200),
+            Color::Rgb(120, 210, 90),
             Color::Rgb(120, 210, 90),
         ],
     ),
@@ -202,6 +217,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(110, 100, 130),
             Color::White,
             Color::Rgb(160, 110, 255),
+            Color::Rgb(180, 130, 255),
         ],
     ),
     (
@@ -214,6 +230,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(146, 131, 116),
             Color::Rgb(60, 56, 54),
             Color::Rgb(121, 116, 14),
+            Color::Rgb(104, 157, 106),
         ],
     ),
     (
@@ -226,6 +243,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(146, 131, 116),
             Color::Rgb(235, 219, 178),
             Color::Rgb(184, 187, 38),
+            Color::Rgb(142, 192, 124),
         ],
     ),
     (
@@ -238,6 +256,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(166, 166, 156),
             Color::Rgb(197, 201, 197),
             Color::Rgb(135, 169, 135),
+            Color::Rgb(142, 164, 162),
         ],
     ),
     (
@@ -250,6 +269,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(196, 178, 138),
             Color::Rgb(84, 84, 100),
             Color::Rgb(111, 137, 78),
+            Color::Rgb(78, 140, 162),
         ],
     ),
     (
@@ -262,6 +282,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(114, 113, 105),
             Color::Rgb(220, 215, 186),
             Color::Rgb(118, 148, 106),
+            Color::Rgb(106, 149, 137),
         ],
     ),
     (
@@ -274,6 +295,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(78, 78, 78),
             Color::Rgb(178, 178, 178),
             Color::Rgb(140, 200, 95),
+            Color::Rgb(121, 219, 195),
         ],
     ),
     (
@@ -285,6 +307,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(30, 0, 50),
             Color::Rgb(100, 80, 120),
             Color::Rgb(230, 230, 255),
+            Color::Rgb(0, 255, 130),
             Color::Rgb(0, 255, 130),
         ],
     ),
@@ -298,6 +321,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(87, 86, 86),
             Color::Rgb(214, 222, 235),
             Color::Rgb(34, 218, 110),
+            Color::Rgb(34, 218, 110),
         ],
     ),
     (
@@ -310,6 +334,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(75, 100, 121),
             Color::Rgb(172, 187, 203),
             Color::Rgb(161, 205, 94),
+            Color::Rgb(33, 199, 168),
         ],
     ),
     (
@@ -321,6 +346,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(59, 66, 82),
             Color::Rgb(76, 86, 106),
             Color::Rgb(216, 222, 233),
+            Color::Rgb(163, 190, 140),
             Color::Rgb(163, 190, 140),
         ],
     ),
@@ -334,6 +360,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(80, 120, 130),
             Color::Rgb(200, 240, 245),
             Color::Rgb(80, 230, 200),
+            Color::Rgb(80, 230, 200),
         ],
     ),
     (
@@ -345,6 +372,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(50, 56, 68),
             Color::Rgb(118, 118, 118),
             Color::Rgb(171, 178, 191),
+            Color::Rgb(152, 195, 121),
             Color::Rgb(152, 195, 121),
         ],
     ),
@@ -358,6 +386,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(82, 82, 82),
             Color::Rgb(242, 244, 248),
             Color::Rgb(66, 190, 101),
+            Color::Rgb(51, 177, 255),
         ],
     ),
     (
@@ -369,6 +398,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(50, 55, 75),
             Color::Rgb(100, 106, 130),
             Color::Rgb(166, 172, 205),
+            Color::Rgb(93, 228, 199),
             Color::Rgb(93, 228, 199),
         ],
     ),
@@ -382,6 +412,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(152, 147, 165),
             Color::Rgb(87, 82, 121),
             Color::Rgb(40, 105, 131),
+            Color::Rgb(40, 105, 131),
         ],
     ),
     (
@@ -393,6 +424,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(68, 65, 90),
             Color::Rgb(110, 106, 134),
             Color::Rgb(224, 222, 244),
+            Color::Rgb(62, 143, 176),
             Color::Rgb(62, 143, 176),
         ],
     ),
@@ -406,6 +438,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(110, 106, 134),
             Color::Rgb(224, 222, 244),
             Color::Rgb(49, 116, 143),
+            Color::Rgb(49, 116, 143),
         ],
     ),
     (
@@ -417,6 +450,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(80, 20, 40),
             Color::Rgb(140, 90, 110),
             Color::Rgb(255, 230, 235),
+            Color::Rgb(255, 160, 190),
             Color::Rgb(255, 160, 190),
         ],
     ),
@@ -430,6 +464,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(88, 110, 117),
             Color::Rgb(131, 148, 150),
             Color::Rgb(133, 153, 0),
+            Color::Rgb(133, 153, 0),
         ],
     ),
     (
@@ -442,6 +477,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(147, 161, 161),
             Color::Rgb(101, 123, 131),
             Color::Rgb(133, 153, 0),
+            Color::Rgb(0, 110, 100),
         ],
     ),
     (
@@ -453,6 +489,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(80, 30, 20),
             Color::Rgb(140, 100, 80),
             Color::Rgb(255, 235, 210),
+            Color::Rgb(255, 180, 80),
             Color::Rgb(255, 180, 80),
         ],
     ),
@@ -466,6 +503,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(127, 112, 148),
             Color::Rgb(218, 217, 199),
             Color::Rgb(30, 187, 43),
+            Color::Rgb(30, 187, 43),
         ],
     ),
     (
@@ -478,6 +516,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(132, 140, 176),
             Color::Rgb(52, 59, 88),
             Color::Rgb(72, 94, 48),
+            Color::Rgb(15, 75, 110),
         ],
     ),
     (
@@ -490,6 +529,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(86, 95, 137),
             Color::Rgb(192, 202, 245),
             Color::Rgb(158, 206, 106),
+            Color::Rgb(115, 218, 202),
         ],
     ),
     (
@@ -502,6 +542,7 @@ pub(crate) const ROLES: &[(&str, [Color; 7])] = &[
             Color::Rgb(86, 95, 137),
             Color::Rgb(192, 202, 245),
             Color::Rgb(158, 206, 106),
+            Color::Rgb(115, 218, 202),
         ],
     ),
 ];
@@ -522,6 +563,7 @@ pub(crate) fn apply(t: &mut Theme) {
         }
         t.success = r[6];
         t.bull = r[6];
+        t.highlight = r[7];
     }
 }
 
@@ -539,6 +581,7 @@ mod tests {
             assert_eq!(t.selection_bg, r[3], "{name} selection_bg");
             assert_eq!(t.muted, r[4], "{name} muted");
             assert_eq!(t.success, r[6], "{name} success");
+            assert_eq!(t.highlight, r[7], "{name} highlight");
         }
     }
 
