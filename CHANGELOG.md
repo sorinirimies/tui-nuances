@@ -1,10 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.7] - 2026-10-25
+
+### Miscellaneous
+- Push/pull current branch instead of hardcoded main
+- Nightly library update (#1)
+- Nightly library update (#1)
+- Nightly library update (#1)
+- Nightly library update (#1)
+- Update Cargo.lock
+
+### Ci
+- Nightly update pushes to main directly like tui-spinner (no manual-merge PR)
+
 ## [0.1.6] - 2026-10-14
 
 ### Documentation
 - Regenerate changelog
+
+### Miscellaneous
+- Bump version to 0.1.6
 
 ### Ci
 - Use prebuilt nushell; justfile: push/pull-all skip missing remotes
