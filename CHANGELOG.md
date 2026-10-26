@@ -1,10 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.10] - 2026-10-26
+
+### Features
+- Add 43 themes ported from nuance (90 built-ins)
+
 ## [0.1.9] - 2026-10-25
 
 ### Features
 - Highlight role (file-match color) in per-theme UI roles
+
+### Miscellaneous
+- Bump version to 0.1.9
 
 ### Ci
 - Bump clechasseur/rs-clippy-check from 4 to 5 (#4)
