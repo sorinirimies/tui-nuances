@@ -18,3 +18,7 @@ updates:
     commit-message:
       prefix: "ci(deps):"
     open-pull-requests-limit: 5
+    ignore:
+      # The msrv job pins dtolnay/rust-toolchain to Cargo.toml's rust-version;
+      # that tag is a Rust version, not an action version, so never bump it.
+      - dependency-name: dtolnay/rust-toolchain
