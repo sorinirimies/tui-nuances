@@ -5,6 +5,8 @@
 [![tui-nuances installs](https://img.shields.io/crates/d/tui-nuances?label=tui-nuances%20installs&logo=rust&color=orange)](https://crates.io/crates/tui-nuances)
 [![CI](https://github.com/sorinirimies/tui-nuances/actions/workflows/ci.yml/badge.svg)](https://github.com/sorinirimies/tui-nuances/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Audit](https://github.com/sorinirimies/tui-nuances/actions/workflows/security.yml/badge.svg)](https://github.com/sorinirimies/tui-nuances/actions/workflows/security.yml)
+[![Fuzz](https://github.com/sorinirimies/tui-nuances/actions/workflows/fuzz.yml/badge.svg)](https://github.com/sorinirimies/tui-nuances/actions/workflows/fuzz.yml)
 
 Shared **theming for [ratatui](https://ratatui.rs) widget libraries**. Build one
 `Theme`, style every component of your app from it: `tui-chart`, `tui-slider`,
