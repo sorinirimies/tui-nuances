@@ -1,5 +1,4 @@
 //! Shared `Arbitrary` helpers for the fuzz targets.
-#![allow(dead_code)]
 
 use arbitrary::Arbitrary;
 use ratatui::style::Color;
