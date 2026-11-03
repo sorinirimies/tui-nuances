@@ -4,7 +4,7 @@
 //! (`catppuccin-mocha` … `monokai`, then the extra editor/palette themes ported from gitkraft, `porsche`), then the accessibility themes
 //! `colorblind`, `high-contrast` and `mono`.
 
-use crate::theme::{rgb, Spec, Theme};
+use crate::theme::{Spec, Theme, rgb};
 use ratatui::style::Color;
 
 named_themes! {

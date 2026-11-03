@@ -129,8 +129,8 @@ All chart fields keep their names (`background`, `foreground`, `muted`, `axis`, 
 ## Development
 
 ```sh
-just test-all   # cargo test --all-features + nushell script tests
-just fuzz-build # needs nightly + cargo-fuzz
+just check-all   # cargo test --all-features + nushell script tests
+just fuzz-list # needs nightly + cargo-fuzz
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). Licensed under [MIT](LICENSE).

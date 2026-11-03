@@ -3,10 +3,10 @@
 
 use crossterm::event::{self, Event, KeyCode, KeyEventKind};
 use ratatui::{
+    Frame,
     layout::{Constraint, Layout},
     text::{Line, Span},
     widgets::{Block, Borders, List, ListItem, ListState, Paragraph},
-    Frame,
 };
 use tui_nuances::{Status, Theme};
 
@@ -84,20 +84,22 @@ fn main() -> std::io::Result<()> {
         list: ListState::default().with_selected(Some(0)),
         focus_list: true,
     };
-    ratatui::run(|terminal| loop {
-        terminal.draw(|f| draw(f, &mut app))?;
-        if let Event::Key(k) = event::read()? {
-            if k.kind != KeyEventKind::Press {
-                continue;
-            }
-            match k.code {
-                KeyCode::Char('q') | KeyCode::Esc => return Ok(()),
-                KeyCode::Char('j') | KeyCode::Down => app.list.select_next(),
-                KeyCode::Char('k') | KeyCode::Up => app.list.select_previous(),
-                KeyCode::Tab => app.focus_list = !app.focus_list,
-                KeyCode::Char('t') => app.theme = app.theme.next(),
-                KeyCode::Char('T') => app.theme = app.theme.prev(),
-                _ => {}
+    ratatui::run(|terminal| {
+        loop {
+            terminal.draw(|f| draw(f, &mut app))?;
+            if let Event::Key(k) = event::read()? {
+                if k.kind != KeyEventKind::Press {
+                    continue;
+                }
+                match k.code {
+                    KeyCode::Char('q') | KeyCode::Esc => return Ok(()),
+                    KeyCode::Char('j') | KeyCode::Down => app.list.select_next(),
+                    KeyCode::Char('k') | KeyCode::Up => app.list.select_previous(),
+                    KeyCode::Tab => app.focus_list = !app.focus_list,
+                    KeyCode::Char('t') => app.theme = app.theme.next(),
+                    KeyCode::Char('T') => app.theme = app.theme.prev(),
+                    _ => {}
+                }
             }
         }
     })

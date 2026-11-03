@@ -65,4 +65,4 @@ pub use provider::{ThemeProvider, Themed};
 pub use style::Status;
 pub use support::ColorSupport;
 pub use switcher::ThemeSwitcher;
-pub use theme::{Theme, DEFAULT_PALETTE};
+pub use theme::{DEFAULT_PALETTE, Theme};

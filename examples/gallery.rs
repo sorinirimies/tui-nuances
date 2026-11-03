@@ -3,11 +3,11 @@
 
 use crossterm::event::{self, Event, KeyCode, KeyEventKind};
 use ratatui::{
+    Frame,
     layout::{Constraint, Layout},
     style::Style,
     text::{Line, Span},
     widgets::{Block, Borders, Paragraph},
-    Frame,
 };
 use tui_nuances::ThemeSwitcher;
 
@@ -100,21 +100,23 @@ fn draw(f: &mut Frame, sw: &ThemeSwitcher) {
 
 fn main() -> std::io::Result<()> {
     let mut sw = ThemeSwitcher::new();
-    ratatui::run(|terminal| loop {
-        terminal.draw(|f| draw(f, &sw))?;
-        if let Event::Key(k) = event::read()? {
-            if k.kind != KeyEventKind::Press {
-                continue;
-            }
-            match k.code {
-                KeyCode::Char('q') | KeyCode::Esc => return Ok(()),
-                KeyCode::Char('t') | KeyCode::Right => {
-                    sw.next();
+    ratatui::run(|terminal| {
+        loop {
+            terminal.draw(|f| draw(f, &sw))?;
+            if let Event::Key(k) = event::read()? {
+                if k.kind != KeyEventKind::Press {
+                    continue;
                 }
-                KeyCode::Char('T') | KeyCode::Left => {
-                    sw.prev();
+                match k.code {
+                    KeyCode::Char('q') | KeyCode::Esc => return Ok(()),
+                    KeyCode::Char('t') | KeyCode::Right => {
+                        sw.next();
+                    }
+                    KeyCode::Char('T') | KeyCode::Left => {
+                        sw.prev();
+                    }
+                    _ => {}
                 }
-                _ => {}
             }
         }
     })

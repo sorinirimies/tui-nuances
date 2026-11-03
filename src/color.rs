@@ -107,11 +107,7 @@ fn lerp(a: u8, b: u8, t: f64) -> u8 {
 }
 
 fn clamp01(t: f64) -> f64 {
-    if t.is_nan() {
-        0.0
-    } else {
-        t.clamp(0.0, 1.0)
-    }
+    if t.is_nan() { 0.0 } else { t.clamp(0.0, 1.0) }
 }
 
 /// Linear blend from `a` (`t = 0`) to `b` (`t = 1`), clamped to `0..=1`.

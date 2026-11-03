@@ -3,11 +3,11 @@
 
 use crossterm::event::{self, Event, KeyCode, KeyEventKind};
 use ratatui::{
+    Frame,
     layout::{Constraint, Layout},
     style::Style,
     text::{Line, Span},
     widgets::{Block, Borders, Paragraph},
-    Frame,
 };
 use tui_nuances::{ColorSupport, ThemeSwitcher};
 
@@ -73,22 +73,24 @@ fn draw(f: &mut Frame, sw: &ThemeSwitcher, level: usize) {
 fn main() -> std::io::Result<()> {
     let mut sw = ThemeSwitcher::new();
     let mut level = 0;
-    ratatui::run(|terminal| loop {
-        terminal.draw(|f| draw(f, &sw, level))?;
-        if let Event::Key(k) = event::read()? {
-            if k.kind != KeyEventKind::Press {
-                continue;
-            }
-            match k.code {
-                KeyCode::Char('q') | KeyCode::Esc => return Ok(()),
-                KeyCode::Char('n') | KeyCode::Right => {
-                    sw.next();
+    ratatui::run(|terminal| {
+        loop {
+            terminal.draw(|f| draw(f, &sw, level))?;
+            if let Event::Key(k) = event::read()? {
+                if k.kind != KeyEventKind::Press {
+                    continue;
                 }
-                KeyCode::Char('p') | KeyCode::Left => {
-                    sw.prev();
+                match k.code {
+                    KeyCode::Char('q') | KeyCode::Esc => return Ok(()),
+                    KeyCode::Char('n') | KeyCode::Right => {
+                        sw.next();
+                    }
+                    KeyCode::Char('p') | KeyCode::Left => {
+                        sw.prev();
+                    }
+                    KeyCode::Char('c') => level = (level + 1) % LEVELS.len(),
+                    _ => {}
                 }
-                KeyCode::Char('c') => level = (level + 1) % LEVELS.len(),
-                _ => {}
             }
         }
     })

@@ -178,7 +178,7 @@ the network):
 ```bash
 just test-nu                                  # or: nu scripts/tests/run_all.nu
 nu scripts/tests/run_all.nu --filter bump     # only matching files
-just test-all                                 # cargo test + Nu tests
+just check-all                                 # cargo test + Nu tests
 ```
 
 When you change a script, keep logic in `export def` helpers so tests can
@@ -191,7 +191,7 @@ never block.
 ```bash
 just audit        # cargo audit   (RUSTSEC advisories; config: .cargo/audit.toml)
 just deny         # cargo deny    (advisories, licenses, bans, sources; config: deny.toml)
-just fuzz-build   # build all fuzz targets (nightly + cargo-fuzz)
+just fuzz-list   # build all fuzz targets (nightly + cargo-fuzz)
 just fuzz render_line 60   # fuzz one target for 60 s
 just fuzz-all 30           # every target, 30 s each
 ```
@@ -213,10 +213,10 @@ changes (crash artifacts are uploaded). Both exist for GitHub and Gitea
 
 ```bash
 # Run specific example
-cargo run --example horizontal
+cargo run --example gallery
 
 # Or use just
-just example-horizontal
+just example gallery
 ```
 
 ### Using Just

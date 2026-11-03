@@ -1,16 +1,19 @@
 [package]
 name = "tui-nuances"
 version = "0.1.10"
-edition = "2021"
+edition = "2024"
 authors = ["Sorin Irimies <sorinirimies@gmail.com>"]
 license = "MIT"
 description = "Shared theming for ratatui widget libraries: one Theme, 90 built-in palettes, semantic styles, contrast-aware color math and terminal color downgrade"
 repository = "https://github.com/sorinirimies/tui-nuances"
+homepage = "https://github.com/sorinirimies/tui-nuances"
+documentation = "https://docs.rs/tui-nuances"
 readme = "README.md"
 keywords = ["tui", "theme", "ratatui", "colors", "palette"]
 categories = ["command-line-interface", "rendering"]
-rust-version = "1.88.0"
+rust-version = "1.88"
 exclude = [
+    ".cargo/**",
     ".gitea/**",
     ".github/**",
     ".zed/**",
@@ -48,6 +51,19 @@ path = "examples/semantic.rs"
 [[example]]
 name = "switcher"
 path = "examples/switcher.rs"
+
+[package.metadata.docs.rs]
+all-features = true
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_debug_implementations = "warn"
+missing_docs = "warn"
+
+[lints.clippy]
+dbg_macro = "warn"
+todo = "warn"
+unwrap_used = "warn"
 
 [profile.dev]
 opt-level = 1
