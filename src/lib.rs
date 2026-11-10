@@ -6,11 +6,10 @@
 //! every component of your app from it.
 //!
 //! * [`Theme`] – ~30 named color slots (UI, status, selection, data-viz) with
-//!   90 built-ins: `default`, `catppuccin-mocha`, `catppuccin-latte`,
-//!   `dracula`, `nord`, `gruvbox`, `tokyo-night`, `solarized-dark`,
-//!   `solarized-light`, `one-dark`, `rose-pine`, `monokai`, `default-light`, `grape`, `ocean`, `sunset`, `forest`, `rose`, `neon`, `gruvbox-light`, `catppuccin-frappe`, `catppuccin-macchiato`, `tokyo-night-storm`, `tokyo-night-light`, `kanagawa-wave`, `kanagawa-dragon`, `kanagawa-lotus`, `moonfly`, `nightfly`, `oxocarbon`, `cyberpunk`, `rose-pine-moon`, `rose-pine-dawn`, `ayu-mirage`, `everforest-dark`, `atom-one-light`, `night-owl`, `poimandres`, `flexoki-dark`, `flexoki-light`, `carbonfox`, `andromeda`, `synthwave`,
-//!   `ayu-dark`, `github-dark`, `github-light`, `zenburn`, `super-mario`, `tokyo-night-moon`, `tokyo-night-day`, `gruvbox-material`, `nightfox`, `dawnfox`, `melange`, `material-palenight`, `tomorrow-night`, `snazzy`, `iceberg`, `papercolor-light`, `synthwave-outrun`, `cobalt`, `modus-vivendi`, `modus-operandi`, `horizon`, `sonokai`, `clair-obscur`, `clair-obscur-canvas`, `mario-overworld`, `mario-underground`, `pip-boy`, `tarnished`, `hyrule`, `doom`, `phantom`, `cavern-hush`, `test-chamber`, `ember`, `meadow`, `dojo`, `underworld`, `summit`, `rain-noir`, `blocky`, `everforest-light`, `ayu-light`, `duskfox`,
-//!   `porsche`, `colorblind`, `high-contrast`, `mono`.
+//!   104 built-ins (see [`Theme::names`]), among them 29 light themes
+//!   (`default-light`, `catppuccin-latte`, `solarized-light`, `github-light`, `gruvbox-light`, `tokyo-night-day`, `rose-pine-dawn`, `atom-one-light`, `ayu-light`, `everforest-light`, `dayfox`, `kanagawa-lotus`, `flexoki-light`, `modus-operandi`, `alabaster`, `edge-light`, `selenized-light`, `bluloco-light`, `papercolor-light`, `synthwave-dawn`, `tokyo-night-light`, `light-owl`, `gruvbox-material-light`, `dawnfox`, `material-lighter`, `iceberg-light`, `clair-obscur-canvas`, `mario-overworld`, `meadow`),
+//!   a synthwave family (`synthwave`, `synthwave-outrun`, `synthwave-dawn`, `retrowave`, `vaporwave`, `laserwave`, `fairyfloss`, `neon`, `cyberpunk`) and the accessibility
+//!   themes `colorblind`, `high-contrast` and `mono`.
 //! * [`Theme::from_base`] / [`Theme::from_palette`] – derive a full theme from a
 //!   few colors your app already has.
 //! * Semantic styles – [`Theme::style`], [`Theme::selected_style`],

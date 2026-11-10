@@ -114,14 +114,48 @@ fn switcher_matches_theme_cycle() {
 
 #[test]
 fn light_themes_have_light_backgrounds() {
-    for n in ["catppuccin-latte", "solarized-light"] {
+    for n in [
+        "catppuccin-latte",
+        "solarized-light",
+        "dayfox",
+        "gruvbox-material-light",
+        "alabaster",
+        "light-owl",
+        "edge-light",
+        "iceberg-light",
+        "selenized-light",
+        "bluloco-light",
+        "material-lighter",
+        "synthwave-dawn",
+    ] {
         let t = Theme::by_name(n).unwrap();
         assert!(tui_nuances::color::is_light(t.background.unwrap()), "{n}");
     }
-    for n in ["dracula", "nord", "monokai"] {
+    for n in [
+        "dracula",
+        "nord",
+        "monokai",
+        "retrowave",
+        "vaporwave",
+        "laserwave",
+        "fairyfloss",
+    ] {
         let t = Theme::by_name(n).unwrap();
         assert!(!tui_nuances::color::is_light(t.background.unwrap()), "{n}");
     }
+}
+
+#[test]
+fn light_themes_appear_early_in_the_cycle() {
+    let lights: Vec<usize> = Theme::all()
+        .iter()
+        .enumerate()
+        .filter(|(_, t)| t.background.is_some_and(tui_nuances::color::is_light))
+        .map(|(i, _)| i)
+        .collect();
+    // `default-light` follows `default`, then dark/light pairs alternate.
+    assert_eq!(lights.first(), Some(&1));
+    assert!(lights.iter().filter(|&&i| i < 20).count() >= 9);
 }
 
 #[test]

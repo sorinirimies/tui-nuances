@@ -20,11 +20,16 @@ and your own widgets.
 - **One `Theme`** with ~30 named slots: UI (`foreground`, `muted`, `border`,
   `border_focused`, `primary`, `selection_bg/fg` …), status (`success`, `warning`,
   `error`, `info`) and data-viz (`palette`, `bull`, `bear`, `axis`, `grid`, `crosshair`, tooltip).
-- **90 built-in themes** (12 editor classics, 31 ported from gitkraft, 43 from nuance): `default`, `catppuccin-mocha`, `catppuccin-latte`, `dracula`,
-  `nord`, `gruvbox`, `tokyo-night`, `solarized-dark`, `solarized-light`, `one-dark`,
-  `rose-pine`, `monokai`, `default-light`, `grape`, `ocean`, `sunset`, `forest`, `rose`, `neon`, `gruvbox-light`, `catppuccin-frappe`, `catppuccin-macchiato`, `tokyo-night-storm`, `tokyo-night-light`, `kanagawa-wave`, `kanagawa-dragon`, `kanagawa-lotus`, `moonfly`, `nightfly`, `oxocarbon`, `cyberpunk`, `rose-pine-moon`, `rose-pine-dawn`, `ayu-mirage`, `everforest-dark`, `atom-one-light`, `night-owl`, `poimandres`, `flexoki-dark`, `flexoki-light`, `carbonfox`, `andromeda`, `synthwave`,
-  `ayu-dark`, `github-dark`, `github-light`, `zenburn`, `super-mario`, `tokyo-night-moon`, `tokyo-night-day`, `gruvbox-material`, `nightfox`, `dawnfox`, `melange`, `material-palenight`, `tomorrow-night`, `snazzy`, `iceberg`, `papercolor-light`, `synthwave-outrun`, `cobalt`, `modus-vivendi`, `modus-operandi`, `horizon`, `sonokai`, `clair-obscur`, `clair-obscur-canvas`, `mario-overworld`, `mario-underground`, `pip-boy`, `tarnished`, `hyrule`, `doom`, `phantom`, `cavern-hush`, `test-chamber`, `ember`, `meadow`, `dojo`, `underworld`, `summit`, `rain-noir`, `blocky`, `everforest-light`, `ayu-light`, `duskfox`,
-  `porsche`, `colorblind`, `high-contrast`, `mono`.
+- **104 built-in themes** (`Theme::names()` lists them in cycling order). The cycle
+  starts with `default`, `default-light` and then dark/light pairs of the popular
+  editor palettes (`catppuccin-mocha`/`catppuccin-latte`, `solarized-dark`/`solarized-light`,
+  `github-dark`/`github-light`, `gruvbox`/`gruvbox-light`, `tokyo-night`/`tokyo-night-day` …).
+  - **Light (29):** `default-light`, `catppuccin-latte`, `solarized-light`, `github-light`, `gruvbox-light`, `tokyo-night-day`, `rose-pine-dawn`, `atom-one-light`, `ayu-light`, `everforest-light`, `dayfox`, `kanagawa-lotus`, `flexoki-light`, `modus-operandi`, `alabaster`, `edge-light`, `selenized-light`, `bluloco-light`, `papercolor-light`, `synthwave-dawn`, `tokyo-night-light`, `light-owl`, `gruvbox-material-light`, `dawnfox`, `material-lighter`, `iceberg-light`, `clair-obscur-canvas`, `mario-overworld`, `meadow`.
+  - **Synthwave:** `synthwave`, `synthwave-outrun`, `synthwave-dawn`, `retrowave`, `vaporwave`, `laserwave`, `fairyfloss`, `neon`, `cyberpunk`.
+  - **Dark:** `dracula`, `nord`, `monokai`, `one-dark`, `rose-pine`, `kanagawa-wave`,
+    `nightfox`, `night-owl`, `material-palenight`, `iceberg`, `horizon`, `oxocarbon` and
+    ~50 more, plus game-inspired ones (`super-mario`, `pip-boy`, `hyrule`, `doom` …) and `porsche`.
+  - **Accessibility:** `colorblind` (Okabe–Ito), `high-contrast`, `mono`.
   Every theme (except the terminal-native `default`/`mono`) passes WCAG AA for text.
 - **Derive a theme** from what you have: `Theme::from_base(..)`, `Theme::from_palette(..)`.
 - **Semantic styles**: `style()`, `muted_style()`, `border_style(focused)`,
