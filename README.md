@@ -118,7 +118,7 @@ let theme = Theme::dracula().downgrade_for_terminal(); // honours NO_COLOR / COL
 
 | Example | Run | Demo |
 |---|---|---|
-| `gallery` – swatches of every theme, `t`/`T` cycle | `cargo run --example gallery` | ![gallery](examples/vhs/output/gallery.gif) |
+| `gallery` – all themes on paged tiles (dark first, then light), `n`/`p` page | `cargo run --example gallery` | ![gallery](examples/vhs/output/gallery.gif) |
 | `semantic` – mock UI using only semantic styles | `cargo run --example semantic` | ![semantic](examples/vhs/output/semantic.gif) |
 | `switcher` – `ThemeSwitcher` + color downgrade | `cargo run --example switcher` | ![switcher](examples/vhs/output/switcher.gif) |
 
