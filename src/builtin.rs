@@ -1,14 +1,16 @@
 //! Built-in named themes and lookup / cycling helpers.
 //!
-//! Cycling order of [`Theme::all`]: `default`, `default-light`, then the
-//! popular editor palettes as dark/light pairs (`catppuccin-mocha` /
-//! `catppuccin-latte` … `modus-vivendi` / `modus-operandi`), `dracula`, `nord`,
-//! `monokai`, the standalone light themes, the synthwave family, the remaining
-//! dark themes (light siblings right after their dark one), `porsche`, then the
-//! accessibility themes `colorblind`, `high-contrast` and `mono`.
+//! Cycling order of [`Theme::all`]: `default` first, then runs of 20 dark
+//! themes alternating with runs of 20 light themes (so light themes show up
+//! early and the cycle does not flash between light and dark on every step).
+//! Inside a run the order follows the theme table; once the light themes are
+//! used up the remaining dark ones follow.
 
 use crate::theme::{Spec, Theme, rgb};
 use ratatui::style::Color;
+
+/// Themes per run in the cycle: this many dark ones, then this many light ones.
+const CYCLE_BLOCK: usize = 20;
 
 named_themes! {
     default_light, "default-light", "Default Light (light, from gitkraft)." =>
@@ -450,16 +452,31 @@ impl Theme {
         v.push(Theme::colorblind());
         v.push(Theme::high_contrast());
         v.push(Theme::mono());
-        v
+        let (light, dark): (Vec<Theme>, Vec<Theme>) = v
+            .into_iter()
+            .partition(|t| t.background.is_some_and(crate::color::is_light));
+        // Blocks of `CYCLE_BLOCK`: dark, light, dark, light … then whatever is left.
+        let (mut dark, mut light) = (dark.into_iter(), light.into_iter());
+        let mut out = Vec::new();
+        loop {
+            let before = out.len();
+            out.extend(dark.by_ref().take(CYCLE_BLOCK));
+            out.extend(light.by_ref().take(CYCLE_BLOCK));
+            if out.len() == before {
+                return out;
+            }
+        }
     }
 
     /// Names of all built-in themes, in cycling order.
     #[must_use]
     pub fn names() -> Vec<&'static str> {
-        let mut v = vec!["default"];
-        v.extend(NAMED.iter().map(|(n, _)| *n));
-        v.extend(["porsche", "colorblind", "high-contrast", "mono"]);
-        v
+        let mut index: std::collections::HashMap<String, &'static str> =
+            NAMED.iter().map(|(n, _)| ((*n).to_string(), *n)).collect();
+        for n in ["default", "porsche", "colorblind", "high-contrast", "mono"] {
+            index.insert(n.to_string(), n);
+        }
+        Self::all().iter().map(|t| index[t.name.as_str()]).collect()
     }
 
     /// Look a built-in theme up by name. Case-insensitive; `_` and spaces

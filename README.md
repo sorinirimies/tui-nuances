@@ -21,9 +21,10 @@ and your own widgets.
   `border_focused`, `primary`, `selection_bg/fg` …), status (`success`, `warning`,
   `error`, `info`) and data-viz (`palette`, `bull`, `bear`, `axis`, `grid`, `crosshair`, tooltip).
 - **104 built-in themes** (`Theme::names()` lists them in cycling order). The cycle
-  starts with `default`, `default-light` and then dark/light pairs of the popular
-  editor palettes (`catppuccin-mocha`/`catppuccin-latte`, `solarized-dark`/`solarized-light`,
-  `github-dark`/`github-light`, `gruvbox`/`gruvbox-light`, `tokyo-night`/`tokyo-night-day` …).
+  starts with `default` and 19 dark themes, then 20 light ones, then 20 dark, the remaining
+  9 light, and the rest dark, so light themes show up early without flashing on every step
+  (`catppuccin-mocha`/`catppuccin-latte`, `solarized-dark`/`solarized-light`, `github-dark`/`github-light`,
+  `gruvbox`/`gruvbox-light`, `tokyo-night`/`tokyo-night-day` …).
   - **Light (29):** `default-light`, `catppuccin-latte`, `solarized-light`, `github-light`, `gruvbox-light`, `tokyo-night-day`, `rose-pine-dawn`, `atom-one-light`, `ayu-light`, `everforest-light`, `dayfox`, `kanagawa-lotus`, `flexoki-light`, `modus-operandi`, `alabaster`, `edge-light`, `selenized-light`, `bluloco-light`, `papercolor-light`, `synthwave-dawn`, `tokyo-night-light`, `light-owl`, `gruvbox-material-light`, `dawnfox`, `material-lighter`, `iceberg-light`, `clair-obscur-canvas`, `mario-overworld`, `meadow`.
   - **Synthwave:** `synthwave`, `synthwave-outrun`, `synthwave-dawn`, `retrowave`, `vaporwave`, `laserwave`, `fairyfloss`, `neon`, `cyberpunk`.
   - **Dark:** `dracula`, `nord`, `monokai`, `one-dark`, `rose-pine`, `kanagawa-wave`,

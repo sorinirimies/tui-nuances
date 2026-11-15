@@ -146,16 +146,16 @@ fn light_themes_have_light_backgrounds() {
 }
 
 #[test]
-fn light_themes_appear_early_in_the_cycle() {
+fn light_themes_come_in_runs_of_twenty() {
     let lights: Vec<usize> = Theme::all()
         .iter()
         .enumerate()
         .filter(|(_, t)| t.background.is_some_and(tui_nuances::color::is_light))
         .map(|(i, _)| i)
         .collect();
-    // `default-light` follows `default`, then dark/light pairs alternate.
-    assert_eq!(lights.first(), Some(&1));
-    assert!(lights.iter().filter(|&&i| i < 20).count() >= 9);
+    // Runs of 20: `default` + 19 dark, then 20 light.
+    assert_eq!(lights.first(), Some(&20));
+    assert_eq!(lights.iter().filter(|&&i| i < 40).count(), 20);
 }
 
 #[test]
