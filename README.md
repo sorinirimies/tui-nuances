@@ -28,7 +28,7 @@ and your own widgets.
   - **Synthwave:** `synthwave`, `synthwave-outrun`, `synthwave-dawn`, `retrowave`, `vaporwave`, `laserwave`, `fairyfloss`, `neon`, `cyberpunk`.
   - **Dark:** `dracula`, `nord`, `monokai`, `one-dark`, `rose-pine`, `kanagawa-wave`,
     `nightfox`, `night-owl`, `material-palenight`, `iceberg`, `horizon`, `oxocarbon` and
-    ~50 more, plus game-inspired ones (`super-mario`, `pip-boy`, `hyrule`, `doom` …) and `porsche`.
+    ~50 more, plus game-inspired ones (`super-mario`, `mario-underground`, `pip-boy`, `hyrule`, `doom`, `tarnished`, `clair-obscur`, `test-chamber`, `cavern-hush`, `dojo`, `underworld`, `summit`, `rain-noir`, `blocky` …) and `porsche`.
   - **Accessibility:** `colorblind` (Okabe–Ito), `high-contrast`, `mono`.
   Every theme (except the terminal-native `default`/`mono`) passes WCAG AA for text.
 - **Derive a theme** from what you have: `Theme::from_base(..)`, `Theme::from_palette(..)`.
