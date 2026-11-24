@@ -4,6 +4,26 @@ All notable changes to this project are documented here. It is generated from
 [Conventional Commits](https://www.conventionalcommits.org) by
 [git-cliff](https://git-cliff.org) — do not edit it by hand.
 
+## [0.1.12](https://github.com/sorinirimies/tui-nuances/compare/v0.1.11...v0.1.12) — 2026-11-24
+
+### ✨ Features
+
+- Cycle themes in runs of 20 dark / 20 light; re-record demos ([`6e2e74e`](https://github.com/sorinirimies/tui-nuances/commit/6e2e74e0cb4b8266fb698fba6e711b7b014e17cd))
+- **examples:** Paged gallery with dark themes first, then light; re-record ([`f01e87f`](https://github.com/sorinirimies/tui-nuances/commit/f01e87f42f6eb25f7fc6f4eedbd712548d772f1d))
+
+### 📚 Documentation
+
+- Re-record demos with all 104 themes, list newer game themes ([`bb2fcd0`](https://github.com/sorinirimies/tui-nuances/commit/bb2fcd0d40a5a2d79db8267350237c2dd2adfb31))
+
+### 📦 Dependencies
+
+- Nightly cargo update 2026-11-24 ([`158924d`](https://github.com/sorinirimies/tui-nuances/commit/158924d5b8acf19737e259c2bab8b29d4cf2e705))
+- Nightly cargo update 2026-11-18 ([`942cfc3`](https://github.com/sorinirimies/tui-nuances/commit/942cfc3089bf3ea144de2a9091d0eaa1ec06feab))
+- Nightly cargo update 2026-11-17 ([`0c3a120`](https://github.com/sorinirimies/tui-nuances/commit/0c3a1207b718b55a0df1fc92c73d56051d17d83b))
+- Nightly cargo update 2026-11-14 ([`f75f629`](https://github.com/sorinirimies/tui-nuances/commit/f75f629a53ce82a4a225ad9fa713381601dd691e))
+- Nightly cargo update 2026-11-13 ([`4ea0588`](https://github.com/sorinirimies/tui-nuances/commit/4ea0588683e40f8009b37d7d6e42327594064af5))
+- Nightly cargo update 2026-11-12 ([`a9b2f74`](https://github.com/sorinirimies/tui-nuances/commit/a9b2f743b94b1c30926fca77bc13f80a4465e88c))
+
 ## [0.1.11](https://github.com/sorinirimies/tui-nuances/compare/v0.1.10...v0.1.11) — 2026-11-10
 
 ### ✨ Features
